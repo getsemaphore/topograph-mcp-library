@@ -1,0 +1,15 @@
+{
+  "name": "topograph",
+  "owner": {
+    "name": "Topograph",
+    "email": "support@topograph.co",
+    "url": "https://topograph.co"
+  },
+  "plugins": [
+    {
+      "name": "topograph",
+      "source": "./plugins/topograph",
+      "description": "Integrate Topograph's company-data API into your product. Live country coverage, pricing, and integration methodology via MCP; slash commands; auto-activating skills."
+    }
+  ]
+}

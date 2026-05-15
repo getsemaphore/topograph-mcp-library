@@ -1,0 +1,21 @@
+{
+  "name": "topograph",
+  "version": "0.1.0",
+  "description": "Integrate Topograph's company data API into your product. Pulls live country coverage, pricing, integration methodology, and code samples directly from www.topograph.co/mcp.",
+  "author": {
+    "name": "Topograph",
+    "url": "https://topograph.co"
+  },
+  "homepage": "https://docs.topograph.co",
+  "repository": "https://github.com/getsemaphore/topograph-mcp-library",
+  "license": "MIT",
+  "keywords": [
+    "topograph",
+    "company-data",
+    "kyb",
+    "aml",
+    "compliance",
+    "registries",
+    "mcp"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "topograph": {
+      "type": "http",
+      "url": "https://www.topograph.co/mcp"
+    }
+  }
+}

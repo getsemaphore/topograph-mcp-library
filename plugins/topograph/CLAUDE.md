@@ -1,6 +1,6 @@
 # Topograph integration helper
 
-You have access to the **`topograph` MCP server** (`https://www.topograph.co/mcp`)
+You have access to the **`topograph` MCP server** (`https://api.topograph.co/designer-mcp`)
 which exposes:
 
 - **Tools**: `list_countries`, `get_country`, `find_data`, `get_pricing`,
@@ -64,12 +64,16 @@ Full rule: `topograph://rules/data-blocks`.
 
 ### 3. Documents are orthogonal
 
-PDFs are **separate catalog items**, ordered with a **separate API call**:
+PDFs are **separate catalog items**, ordered through the same
+`POST /v2/company` endpoint by passing the `documents` array (alongside
+or independently of `dataPoints`):
 ```
-POST /v2/company/{cc}/{id}/documents { type: "trade_register_extract" }
+POST /v2/company { countryCode, id, documents: ["trade_register_extract"] }
 ```
 
-Not affected by mode. Sometimes bundled at price 0 with a parent block.
+Discover what's available for a country by requesting the
+`availableDocuments` datapoint first. Not affected by mode. Documents
+are sometimes bundled at price 0 with a parent data block.
 
 Full rule: `topograph://rules/documents`.
 

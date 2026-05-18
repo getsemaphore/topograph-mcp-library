@@ -2,8 +2,8 @@
 
 Claude Code plugin that adds:
 
-- An MCP registration pointing at `https://www.topograph.co/mcp` (served by
-  the `/mcp` App Router route in `apps/landing`).
+- An MCP registration pointing at `https://api.topograph.co/designer-mcp`
+  (served by the NestJS `designer-mcp` controller in `apps/api`).
 - Slash commands: `/topograph:search`, `/topograph:cost`,
   `/topograph:integrate`, `/topograph:add-country`.
 - Skills: `topograph-integration` and `topograph-country-coverage` that
@@ -24,11 +24,15 @@ Install the plugin:
 /plugin install topograph@topograph
 ```
 
-The plugin points at the OAuth-protected MCP endpoint:
-`https://www.topograph.co/mcp`.
+The plugin points at the Clerk-protected MCP endpoint:
+`https://api.topograph.co/designer-mcp`.
 
-The MCP client will ask you to sign in with Topograph. It does not require your
-REST API key.
+The MCP client will run a standard OAuth 2.1 PKCE flow against Topograph's
+Clerk-hosted sign-in. Any Clerk user works — no invite or org membership is
+required for catalog browsing, pricing simulator, and personalized quotes.
+Production REST API access (`/v2/search` and `/v2/company` — the latter
+also serves document orders via the `documents` array) is separate and
+requires being invited to a customer org by sales.
 
 ## Local dev install
 

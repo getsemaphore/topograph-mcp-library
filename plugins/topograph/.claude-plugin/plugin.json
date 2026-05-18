@@ -1,7 +1,7 @@
 {
   "name": "topograph",
   "version": "0.1.0",
-  "description": "Integrate Topograph's company data API into your product. Pulls live country coverage, pricing, integration methodology, and code samples directly from www.topograph.co/mcp.",
+  "description": "Integrate Topograph's company data API into your product. Pulls live country coverage, pricing, integration methodology, and code samples directly from api.topograph.co/designer-mcp.",
   "author": {
     "name": "Topograph",
     "url": "https://topograph.co"

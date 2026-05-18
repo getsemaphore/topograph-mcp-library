@@ -14,7 +14,7 @@ packages/claude-plugin/
 │   └── topograph/              # the plugin
 │       ├── .claude-plugin/
 │       │   └── plugin.json    # plugin metadata
-│       ├── .mcp.json          # MCP server registration (https://www.topograph.co/mcp)
+│       ├── .mcp.json          # MCP server registration (https://api.topograph.co/designer-mcp)
 │       ├── CLAUDE.md          # ambient context
 │       ├── commands/          # slash commands
 │       ├── skills/            # auto-activating skills

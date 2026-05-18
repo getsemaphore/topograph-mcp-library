@@ -2,7 +2,7 @@
   "mcpServers": {
     "topograph": {
       "type": "http",
-      "url": "https://www.topograph.co/mcp"
+      "url": "https://api.topograph.co/designer-mcp"
     }
   }
 }

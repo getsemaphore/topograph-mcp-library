@@ -14,7 +14,7 @@ Interpret the arguments as `<country-code> <datapoints> [volume]`. Examples:
 Steps:
 
 1. Parse the country code, datapoints (comma-separated), and optional volume.
-2. Call `get_country(cc)` on the `topograph` MCP.
+2. Call `get_country(cc)` on the `wizard` MCP server (Topograph Wizard).
 3. Compute the per-company cost:
    - For each requested datapoint, find the cheapest `dataBlock` that
      covers it (i.e. its `datapoints[]` includes the datapoint).

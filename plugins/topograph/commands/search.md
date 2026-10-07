@@ -5,7 +5,7 @@ argument-hint: <query>
 
 Search the Topograph catalog for: $ARGUMENTS
 
-Use the `topograph` MCP server:
+Use the `wizard` MCP server (Topograph Wizard):
 
 1. Call `find_data` with the query above to surface countries, datapoints,
    documents, or registers that match.

@@ -3,7 +3,7 @@ description: Start a guided Topograph integration walkthrough for a country or c
 argument-hint: [country-codes]
 ---
 
-Run the `integrate-topograph` MCP prompt on the `topograph` server.
+Run the `integrate-topograph` MCP prompt on the `wizard` server.
 
 If $ARGUMENTS is provided, pass it as the `countries` argument (comma-separated
 country codes). Otherwise leave both arguments empty and let the user clarify

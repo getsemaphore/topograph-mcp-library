@@ -1,13 +1,17 @@
 ---
 name: topograph-integration
-description: Use when the user is integrating, calling, or evaluating the Topograph company-data API (any mention of topograph.co, @topograph/sdk, /v2/search, /v2/company, KYB/AML company lookups, signup flow / marketplace onboarding using business registers like INPI/INSEE/Companies House/Handelsregister/KVK). Pulls live coverage and pricing from the topograph MCP, and enforces the canonical onboarding + search-first methodology rather than guessing.
+description: Use when the user is integrating, calling, or evaluating the Topograph company-data API (any mention of topograph.co, @topograph/sdk, /v2/search, /v2/company, KYB/AML company lookups, signup flow / marketplace onboarding using business registers like INPI/INSEE/Companies House/Handelsregister/KVK). Pulls live coverage and pricing from the Topograph Wizard MCP (`wizard` server), and enforces the canonical onboarding + search-first methodology rather than guessing.
 ---
 
 # Topograph integration
 
 The user is working with Topograph — a company-data API covering 60+
-countries and US states. You have an MCP server registered as `topograph`
+countries and US states. You have an MCP server registered as `wizard` (Topograph Wizard)
 exposing the public catalog, docs, and integration methodology rules.
+The plugin also registers `data` (the Topograph MCP), which runs real,
+billed company lookups: use it only when the user wants data about an actual
+company, not to design an integration (see the `topograph-company-lookup`
+skill).
 
 ## Before recommending anything
 
@@ -66,7 +70,7 @@ Ask whether the integration is:
 
 **Step 2: Resolve country coverage.**
 
-Use the MCP tools — never guess:
+Use the Wizard tools, never guess:
 
 - `list_countries` — what's supported (filter by region / capability)
 - `get_country(cc)` — full manifest (identifiers, data blocks, modes, limitations)
@@ -112,7 +116,7 @@ onboarding mode at signup, verify in verification mode after submit.
 
 ## Authentication
 
-The MCP client signs in to Topograph through OAuth. The user's application
+The Wizard signs in to Topograph through OAuth. The user's application
 still authenticates with the real Topograph REST API using its own API key. See
 `topograph://rules/auth-setup`.
 

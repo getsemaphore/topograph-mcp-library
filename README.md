@@ -14,7 +14,7 @@ packages/claude-plugin/
 │   └── topograph/              # the plugin
 │       ├── .claude-plugin/
 │       │   └── plugin.json    # plugin metadata
-│       ├── .mcp.json          # MCP server registration (https://api.topograph.co/designer-mcp)
+│       ├── .mcp.json          # MCP servers: wizard (mcp.topograph.co/wizard) + data (mcp.topograph.co/mcp)
 │       ├── CLAUDE.md          # ambient context
 │       ├── commands/          # slash commands
 │       ├── skills/            # auto-activating skills
@@ -32,8 +32,11 @@ the repo root, so installs look like:
 
 ## Editing the plugin
 
-Edit files under `plugins/topograph/`. The MCP itself lives in
-`apps/landing/src/lib/topograph-mcp/` (served from `apps/landing` at `/mcp`).
+Edit files under `plugins/topograph/`. Both MCP servers live in
+`apps/api/src/features/mcp/` and are served by `apps/api` on
+`https://mcp.topograph.co`: the Topograph MCP (company data) at `/mcp` and the
+Topograph Wizard (catalog, pricing, docs) at `/wizard`. The Wizard's former
+URL, `https://api.topograph.co/designer-mcp`, stays as a permanent alias.
 
 After editing, push to `main` — the GitHub workflow at
 `.github/workflows/sync-claude-plugin.yml` mirrors changes to the public
@@ -43,7 +46,8 @@ repo, which is what users `/plugin install` from.
 
 To test the plugin before publishing, create a local marketplace directory with
 the same structure as this folder and point `plugins/topograph/.mcp.json` at a
-local MCP endpoint, for example `http://localhost:3000/mcp`.
+local API, for example `http://localhost:<api-port>/wizard` and
+`http://localhost:<api-port>/mcp`.
 
 Then install from the local marketplace path:
 

@@ -9,7 +9,7 @@
     {
       "name": "topograph",
       "source": "./plugins/topograph",
-      "description": "Integrate Topograph's company-data API into your product. Live country coverage, pricing, and integration methodology via MCP; slash commands; auto-activating skills."
+      "description": "Query company data from official business registers and integrate the Topograph API. Two MCP servers (Topograph for data, Topograph Wizard for coverage, pricing and integration help), slash commands and auto-activating skills."
     }
   ]
 }

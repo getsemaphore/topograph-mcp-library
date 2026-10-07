@@ -1,8 +1,12 @@
 {
   "mcpServers": {
-    "topograph": {
+    "wizard": {
       "type": "http",
-      "url": "https://api.topograph.co/designer-mcp"
+      "url": "https://mcp.topograph.co/wizard"
+    },
+    "data": {
+      "type": "http",
+      "url": "https://mcp.topograph.co/mcp"
     }
   }
 }

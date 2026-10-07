@@ -1,13 +1,13 @@
 ---
 name: topograph-country-coverage
-description: Use when the user asks "does Topograph cover [country]?" or "what data does Topograph have for [country]?" or any country-specific Topograph coverage question. Fetches the live country manifest from the topograph MCP instead of guessing or relying on training data.
+description: Use when the user asks "does Topograph cover [country]?" or "what data does Topograph have for [country]?" or any country-specific Topograph coverage question. Fetches the live country manifest from the Topograph Wizard MCP (`wizard` server) instead of guessing or relying on training data.
 ---
 
 # Topograph country coverage
 
 When the user asks about coverage for a specific country:
 
-1. Call `get_country(cc)` on the `topograph` MCP.
+1. Call `get_country(cc)` on the `wizard` MCP server (Topograph Wizard).
 2. Summarize:
    - **Identifiers accepted** (with format + example)
    - **Data blocks offered** (block name → datapoints → modes available)
@@ -22,6 +22,10 @@ If they ask about a country that returns "not found", suggest
 
 ## Don't over-trust training data
 
-Topograph adds countries frequently. The MCP catalog is the source of truth.
-Never claim "Topograph doesn't support X" without first calling the MCP — the
+Topograph adds countries frequently. The Wizard catalog is the source of truth.
+Never claim "Topograph doesn't support X" without first calling the MCP: the
 training cutoff is months behind what's live.
+
+If only the `data` server is connected (the Topograph MCP for company data),
+its free `get_country_coverage` tool returns the same coverage, prices and
+identifier formats.

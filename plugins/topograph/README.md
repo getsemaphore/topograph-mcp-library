@@ -2,13 +2,24 @@
 
 Claude Code plugin that adds:
 
-- An MCP registration pointing at `https://api.topograph.co/designer-mcp`
-  (served by the NestJS `designer-mcp` controller in `apps/api`).
-- Slash commands: `/topograph:search`, `/topograph:cost`,
-  `/topograph:integrate`, `/topograph:add-country`.
-- Skills: `topograph-integration` and `topograph-country-coverage` that
-  auto-activate when Claude detects the user is working with Topograph.
+- Two MCP servers, both served by the NestJS API in `apps/api`
+  (`apps/api/src/features/mcp/`):
+  - `data`, the **Topograph MCP** (`https://mcp.topograph.co/mcp`): query
+    company data from official business registers. Paid tools are billed like
+    the REST API, with a monthly MCP spending cap per person.
+  - `wizard`, the **Topograph Wizard** (`https://mcp.topograph.co/wizard`):
+    live coverage, pricing, docs, OpenAPI and code samples for building an
+    integration. Its former URL, `https://api.topograph.co/designer-mcp`,
+    keeps working.
+- Slash commands: `/topograph:lookup`, `/topograph:search`,
+  `/topograph:cost`, `/topograph:integrate`, `/topograph:add-country`.
+- Skills: `topograph-company-lookup`, `topograph-integration` and
+  `topograph-country-coverage`, which auto-activate when Claude detects the
+  user is looking up a company or working with Topograph.
 - An ambient `CLAUDE.md` fragment that loads when the plugin is enabled.
+
+Claude Code names the tools `mcp__plugin_topograph_data__<tool>` and
+`mcp__plugin_topograph_wizard__<tool>`.
 
 ## Install
 
@@ -24,21 +35,32 @@ Install the plugin:
 /plugin install topograph@topograph
 ```
 
-The plugin points at the Clerk-protected MCP endpoint:
-`https://api.topograph.co/designer-mcp`.
+Then run `/mcp` and sign in to each server. Both use a standard OAuth 2.1
+PKCE flow against Topograph's sign-in.
 
-The MCP client will run a standard OAuth 2.1 PKCE flow against Topograph's
-Clerk-hosted sign-in. Any Clerk user works — no invite or org membership is
-required for catalog browsing, pricing simulator, and personalized quotes.
-Production REST API access (`/v2/search` and `/v2/company` — the latter
-also serves document orders via the `documents` array) is separate and
-requires being invited to a customer org by sales.
+- **Wizard:** any Topograph login works. No invite or organisation is needed
+  for catalog browsing, the pricing simulator and personalized quotes.
+- **Data:** the sign-in screen asks which organisation (environment) the
+  agent acts for. The organisation needs API access, like the REST API.
+  Requests appear in the app's request history and are billed to that
+  organisation's wallet.
+
+To use an API key instead of OAuth for the data server, add it by hand:
+
+```
+claude mcp add --transport http topograph https://mcp.topograph.co/mcp \
+  --header "Authorization: Bearer $TOPOGRAPH_API_KEY"
+```
+
+Full guides: https://docs.topograph.co/guides/mcp (data) and
+https://docs.topograph.co/guides/topograph-mcp (Wizard).
 
 ## Local dev install
 
 For local testing, copy this marketplace structure to a local directory and
-override `.mcp.json` to point at your local landing server, for example
-`http://localhost:3000/mcp`. Then install from that local marketplace path.
+override `.mcp.json` to point at your local API, for example
+`http://localhost:<api-port>/wizard` and `http://localhost:<api-port>/mcp`.
+Then install from that local marketplace path.
 
 ## Distribution
 

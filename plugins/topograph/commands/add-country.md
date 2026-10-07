@@ -3,7 +3,7 @@ description: Add support for a new country to an existing Topograph integration.
 argument-hint: <country-code>
 ---
 
-Run the `add-country` MCP prompt on the `topograph` server with `cc=$ARGUMENTS`.
+Run the `add-country` MCP prompt on the `wizard` server with `cc=$ARGUMENTS`.
 
 The prompt will:
 

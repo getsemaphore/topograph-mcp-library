@@ -1,0 +1,13 @@
+{
+  "name": "topograph",
+  "version": "0.1.0",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "topograph": {
+      "httpUrl": "https://mcp.topograph.co/mcp"
+    },
+    "topograph-wizard": {
+      "httpUrl": "https://mcp.topograph.co/wizard"
+    }
+  }
+}

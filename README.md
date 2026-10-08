@@ -1,8 +1,29 @@
-# Topograph Claude Code marketplace (monorepo source)
+# Topograph MCP integrations (monorepo source)
 
 This directory is the **canonical source** for the Topograph Claude Code
 plugin and marketplace. CI mirrors this tree to the public repo
 `github.com/getsemaphore/topograph-mcp-library` on every push to `main`.
+
+## Gemini CLI
+
+The root `gemini-extension.json` packages the company-data MCP and the Wizard
+for Gemini CLI. After this change is mirrored to the public repository:
+
+```bash
+gemini extensions install https://github.com/getsemaphore/topograph-mcp-library
+```
+
+Sign in with `/mcp auth topograph` and `/mcp auth topograph-wizard`.
+Company data requires a Topograph subscription with API access. Paid retrieval
+uses your organisation's credits; check prices and approve a budget first.
+
+To list the extension in Google's Gemini CLI gallery, add the
+`gemini-cli-extension` GitHub topic to the public repository once the root
+manifest has been published. Google's daily crawler validates and indexes it:
+https://geminicli.com/docs/extensions/releasing/.
+
+This is a Topograph-authored Gemini CLI extension; it does not claim Google
+endorsement or installation into the Gemini consumer web application.
 
 ## Layout
 

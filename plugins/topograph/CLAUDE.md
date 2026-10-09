@@ -166,3 +166,5 @@ and return generated test data.
 
 When the user is building an integration, their application calls the REST
 API directly with its own API key (see `topograph://rules/auth-setup`).
+
+For ownership graphs, use get_graph with the user-approved max_cost_credits limit. The total depends on companies discovered, so explain that the limit is a ceiling rather than an exact quote. Use continue_graph to expand only the selected budget_truncated company node IDs under the returned main_request_id, with fresh approval of each continuation limit. Poll its request_id for progress, then get_request on main_request_id to see the merged graph. Already purchased company data is deduplicated; never claim missing ownership information proves there are no beneficial owners. Graph traversal requires the live environment and verification mode.

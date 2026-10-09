@@ -4,7 +4,13 @@ This directory is the **canonical source** for the Topograph Claude Code
 plugin and marketplace. CI mirrors this tree to the public repo
 `github.com/getsemaphore/topograph-mcp-library` on every push to `main`.
 
+## Antigravity
+
+Free and Google One accounts (including Google AI Pro and Ultra) use Antigravity CLI or IDE. Follow the Antigravity setup on [Work with agents](https://app.topograph.co/agents). Its remote MCP configuration uses `serverUrl`, rather than Gemini CLI’s `httpUrl`. See [Google’s migration guide](https://www.antigravity.google/docs/cli/gcli-migration/).
+
 ## Gemini CLI
+
+Gemini CLI remains supported for Code Assist Standard/Enterprise licenses and paid API keys.
 
 The root `gemini-extension.json` packages the company-data MCP and the Wizard
 for Gemini CLI. After this change is mirrored to the public repository:

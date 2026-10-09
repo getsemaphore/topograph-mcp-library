@@ -1,6 +1,6 @@
 {
   "name": "topograph",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Topograph for Claude Code: query company data from official business registers (Topograph MCP at mcp.topograph.co/mcp) and integrate the Topograph API with live coverage, pricing, docs and code samples (Topograph Wizard at mcp.topograph.co/wizard).",
   "author": {
     "name": "Topograph",
